@@ -46,11 +46,21 @@ public class UserManager implements SystemUserManager {
 			return false;
 	}
 	
-	public void changeActive(String name) {
+	public boolean changeActive(String name) {
 		for(Human i : listUser)
 		{
 			if(i.getName() == name)
-				i.changeActive();
+				return i.changeActive();
 		}
+		return false;
+	}
+	
+	public ArrayList<String> listUser(){
+		ArrayList<String> result = new ArrayList<>();
+		for(Human i : listUser) {
+			if(i.isAdmin() == false)
+				result.add(i.toString());
+		}
+		return result;
 	}
 }

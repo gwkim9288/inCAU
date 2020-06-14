@@ -15,11 +15,13 @@ public class User extends Human {
 		// TODO Auto-generated constructor stub
 	}
 	
-	void changeActive() {
+	boolean changeActive() {
 		if(super.activation == true)
 			activation = false;
 		else if (activation == false)
 			activation = true;
+		
+		return true;
 	}
 	
 	boolean getActivation() {

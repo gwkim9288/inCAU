@@ -2,7 +2,10 @@ package bookMarketSystem;
 
 import java.util.ArrayList;
 
-public abstract class Place {
+import bookMarket.SystemForAdmin;
+import bookMarket.SystemForUser;
+
+public abstract class Place implements SystemForUser, SystemForAdmin {
 
 	Human currentUser;
 	

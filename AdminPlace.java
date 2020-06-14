@@ -25,4 +25,17 @@ public class AdminPlace extends Place implements SystemForAdmin{
 			searchResult.add(i.toString());
 		return searchResult;
 	}
+
+	//override method
+	public Purchase buyBook(int num) {
+		return null;
+	}
+
+	
+	public boolean modifyBook(Book book, String name, int ISBN, String author, String publisher, String state,
+			Integer price, Integer year) {
+		return false;
+	}
+
+	
 }

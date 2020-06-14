@@ -14,8 +14,8 @@ public class UserPlace extends Place implements SystemForUser{
 		super(cur);
 	}
 		
-	public boolean enterBook(String name, String author, String state, Integer price, Integer year) {
-		return bookManager.enterBook(name,author,state,price,year,currentUser);
+	public boolean enterBook(String name, int ISBN, String author, String publisher,String state, Integer price, Integer year) {
+		return bookManager.enterBook(name,ISBN,author,publisher,state,price,year,currentUser);
 	}
 
 	public boolean deleteBook(Book book) {
@@ -39,16 +39,12 @@ public class UserPlace extends Place implements SystemForUser{
 		return searchResult;
 	}
 	
-	public boolean modifyBook(Book book,String name, String author, String state, Integer price , Integer year) {
+	public boolean modifyBook(Book book,String name,int ISBN, String author,String publisher, String state, Integer price , Integer year) {
 		if(name == null)
 			return false;
-		bookManager.modifyBookInfo(book, new Book(name,author,state,price,year,currentUser));
+		bookManager.modifyBookInfo(book, new Book(name,ISBN,author,publisher,state,price,year,currentUser));
 		return true;
 	}
 
-	
-
-
-	
 	
 }

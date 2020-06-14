@@ -32,7 +32,7 @@ public abstract class Human {
 		return this.name;
 	}
 	
-	abstract void changeActive();
+	abstract boolean changeActive();
 	
 	abstract boolean getActivation();
 	

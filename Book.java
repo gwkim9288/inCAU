@@ -3,6 +3,8 @@ package bookMarketSystem;
 public class Book {
 	
 	private String name;
+	private int ISBN;
+	private String publisher;
 	private String author;
 	private String state;
 	private Integer price;
@@ -11,9 +13,11 @@ public class Book {
 	private int uniqueNum;
 	private static int totalNum=0;
 	
-	public Book(String name, String author,String state, Integer price, Integer year,Human user ) {
+	public Book(String name, int ISBN, String author,String publishser, String state, Integer price, Integer year,Human user ) {
 		this.name = name;
+		this.ISBN = ISBN;
 		this.author = author;
+		this.publisher = publisher;
 		this.state = state;
 		this.price = price;
 		this.year = year;

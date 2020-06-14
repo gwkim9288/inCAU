@@ -26,10 +26,10 @@ public class BookManager {
 	}
 
 	//return false if there is no name value, return true is done. 
-	boolean enterBook(String name, String author, String state, Integer price, Integer year, Human user) {
+	boolean enterBook(String name, int ISBN, String author, String publisher,String state, Integer price, Integer year, Human user) {
 		if(name == null)
 			return false;
-		bookList.add(new Book(name,author,state,price,year,user));
+		bookList.add(new Book(name,ISBN,author,publisher, state,price,year,user));
 		return true;
 	}
 	

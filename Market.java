@@ -1,10 +1,9 @@
 package bookMarketSystem;
 
-import bookMarket.SystemForUser;
+import bookMarket.SystemForLogin;
 
-public class Market{
+public class Market implements SystemForLogin{
 	Human currentUser;
-	UserManager userManager = new UserManager();
 	public Market(String name, String password) {
 		currentUser = UserManager.findUser(name, password);
 	}
@@ -15,4 +14,16 @@ public class Market{
 		else
 			return new UserPlace(currentUser);
 	}
+
+	@Override
+	public boolean isAdmin() {
+		
+		return currentUser.isAdmin();
+	}
+	
+	public UserManager getManager() {
+		return new UserManager();
+	}
+
+	
 }
