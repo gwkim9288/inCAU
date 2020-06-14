@@ -1,5 +1,7 @@
 package bookMarketSystem;
 
+import java.util.ArrayList;
+
 public abstract class Human {
 	private String name;
 	private String password;
@@ -32,8 +34,13 @@ public abstract class Human {
 		return this.name;
 	}
 	
+	abstract void addBook(Book book);
+	
 	abstract boolean changeActive();
 	
 	abstract boolean getActivation();
+
+	abstract ArrayList<String> listUserBook();
+
 	
 }

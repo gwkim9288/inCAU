@@ -15,6 +15,7 @@ public class UserPlace extends Place implements SystemForUser{
 	}
 		
 	public boolean enterBook(String name, int ISBN, String author, String publisher,String state, Integer price, Integer year) {
+		currentUser.addBook(new Book(name,ISBN,author,publisher,state,price,year,currentUser));
 		return bookManager.enterBook(name,ISBN,author,publisher,state,price,year,currentUser);
 	}
 
@@ -46,5 +47,7 @@ public class UserPlace extends Place implements SystemForUser{
 		return true;
 	}
 
-	
+	public ArrayList<String> listUserBook(){
+		return currentUser.listUserBook();
+	}
 }

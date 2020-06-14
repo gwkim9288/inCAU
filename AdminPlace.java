@@ -37,5 +37,11 @@ public class AdminPlace extends Place implements SystemForAdmin{
 		return false;
 	}
 
+	@Override
+	public ArrayList<String> listUserBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

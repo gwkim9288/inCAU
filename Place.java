@@ -38,4 +38,5 @@ public abstract class Place implements SystemForUser, SystemForAdmin {
 	public boolean modifyBook(String bookName,String content) {
 		return false;
 	}
+	public ArrayList<String> listUserBook();
 }

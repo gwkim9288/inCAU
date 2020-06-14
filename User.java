@@ -28,4 +28,16 @@ public class User extends Human {
 		return activation;
 	}
 	
+	void addBook(Book book) {
+		bookList.add(book);
+	}
+	
+	ArrayList<String> listUserBook() {
+		ArrayList<String> list = new ArrayList<>();
+		for(Book i: bookList)
+			list.add(i.toString());
+		return list;
+	}
+
+	
 }

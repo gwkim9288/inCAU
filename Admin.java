@@ -1,5 +1,7 @@
 package bookMarketSystem;
 
+import java.util.ArrayList;
+
 public class Admin extends Human {
 
 	Admin() {
@@ -14,6 +16,17 @@ public class Admin extends Human {
 	@Override
 	boolean getActivation() {
 		return true;
+	}
+
+	@Override
+	ArrayList<String> listUserBook() {
+		return null;
+	}
+
+
+	@Override
+	void addBook(Book book) {
+		
 	}
 
 }
