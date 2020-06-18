@@ -12,24 +12,25 @@ public class UserPlace extends Place implements SystemForUser{
 	
 	public UserPlace(Human cur) {
 		super(cur);
+		currentUser = cur;
 	}
 		
-	public boolean enterBook(String name, int ISBN, String author, String publisher,String state, Integer price, Integer year) {
-		currentUser.addBook(new Book(name,ISBN,author,publisher,state,price,year,currentUser));
-		return bookManager.enterBook(name,ISBN,author,publisher,state,price,year,currentUser);
+	public boolean enterBook(String name, Integer ISBN, String author, String publisher,String state, Integer price, Integer year) {
+		Book book = new Book(name,ISBN,author,publisher,state,price,year,currentUser);
+		currentUser.addBook(book);
+		return bookManager.enterBook(book);
 	}
 
-	public boolean deleteBook(Book book) {
-		if(book.getUser() == currentUser)
-			return bookManager.deleteBook(book);
+	public boolean deleteBook(int bookNum) {
+		if(bookManager.matchBook(bookNum).equals(currentUser))
+			return bookManager.deleteBook(bookNum);
 		else
 			return false;
 	}
 	
-	public Purchase buyBook(int num) {
-		if(bookSearchList == null)
-			return new Purchase(currentUser, null);
-		return new Purchase(currentUser,bookSearchList.get(num));
+	public String buyBook(int num) {
+		Purchase pur = new Purchase(currentUser,num);
+		return pur.doPurchase();
 	}
 	
 	public ArrayList<String> findBook(String bookName) {
@@ -40,14 +41,17 @@ public class UserPlace extends Place implements SystemForUser{
 		return searchResult;
 	}
 	
-	public boolean modifyBook(Book book,String name,int ISBN, String author,String publisher, String state, Integer price , Integer year) {
-		if(name == null)
+	public boolean modifyBook(int bookNum,String name,Integer ISBN, String author,String publisher, String state, Integer price , Integer year) {
+		if(bookManager.matchBook(bookNum).getUser() == currentUser)
+			return 	bookManager.modifyBookInfo(bookNum, new Book(name,ISBN,author,publisher,state,price,year,currentUser));
+		else
 			return false;
-		bookManager.modifyBookInfo(book, new Book(name,ISBN,author,publisher,state,price,year,currentUser));
-		return true;
 	}
 
 	public ArrayList<String> listUserBook(){
 		return currentUser.listUserBook();
 	}
+
+
+
 }

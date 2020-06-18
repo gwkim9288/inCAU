@@ -11,9 +11,9 @@ public class Book {
 	private Integer year;
 	private Human user;
 	private int uniqueNum;
-	private static int totalNum=0;
+	private static int totalNum=1;
 	
-	public Book(String name, int ISBN, String author,String publishser, String state, Integer price, Integer year,Human user ) {
+	public Book(String name, Integer ISBN, String author,String publisher, String state, Integer price, Integer year,Human user ) {
 		this.name = name;
 		this.ISBN = ISBN;
 		this.author = author;
@@ -22,6 +22,8 @@ public class Book {
 		this.price = price;
 		this.year = year;
 		this.user = user;
+		this.uniqueNum = totalNum;
+		totalNum++;
 	}
 	
 	Human getUser() {
@@ -30,5 +32,13 @@ public class Book {
 	
 	String getName() {
 		return this.name;
+	}
+	
+	int getNum() {
+		return this.uniqueNum;
+	}
+	
+	public String toString() {
+		return String.format("Num:%d\tName:%s\tISBN:%d", uniqueNum,name,ISBN);
 	}
 }

@@ -8,6 +8,13 @@ public class Market implements SystemForLogin{
 		currentUser = UserManager.findUser(name, password);
 	}
 	
+	public boolean isRegistered() {
+		if(currentUser == null)
+			return false;
+		else
+			return true;
+	}
+	
 	public Place getPlace() {
 		if(currentUser.isAdmin())
 			return new AdminPlace(currentUser);

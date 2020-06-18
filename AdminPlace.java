@@ -12,10 +12,11 @@ public class AdminPlace extends Place implements SystemForAdmin{
 	
 	public AdminPlace(Human admin) {
 		super(admin);
+		currentUser = admin;
 	}
 	
-	public boolean deleteBook(Book book) {
-		return bookManager.deleteBook(book);
+	public boolean deleteBook(int bookNum) {
+		return bookManager.deleteBook(bookNum);
 	}
 	
 	public ArrayList<String> findBook(String bookName) {
@@ -27,20 +28,29 @@ public class AdminPlace extends Place implements SystemForAdmin{
 	}
 
 	//override method
-	public Purchase buyBook(int num) {
+	public String buyBook(int num) {
 		return null;
 	}
 
-	
-	public boolean modifyBook(Book book, String name, int ISBN, String author, String publisher, String state,
-			Integer price, Integer year) {
-		return false;
-	}
 
 	@Override
 	public ArrayList<String> listUserBook() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean enterBook(String name, Integer ISBN, String author, String publisher, String state, Integer price,
+			Integer year) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modifyBook(int bookNum, String name, Integer ISBN, String author, String publisher, String state,
+			Integer price, Integer year) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	

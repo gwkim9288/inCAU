@@ -23,7 +23,7 @@ public abstract class Human {
 	
 	// user login, used by UserManageer
 	boolean matchInfo(String name, String password){
-		if(this.name == name&&this.password == password)
+		if(this.name.equals(name)&&this.password.equals(password))
 			return true;
 		else
 			return false;
@@ -42,5 +42,6 @@ public abstract class Human {
 
 	abstract ArrayList<String> listUserBook();
 
+	abstract String getAddress();
 	
 }

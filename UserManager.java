@@ -8,8 +8,11 @@ import bookMarket.SystemUserManager;
 public class UserManager implements SystemUserManager {
 	Human recentUser;
 	private static ArrayList<Human> listUser = new ArrayList<>();
+
 	
 	static Human findUser(String name,String password){
+		if(listUser.isEmpty())
+			listUser.add(new Admin());
 		for(Human i: listUser)
 		{
 			if(i.matchInfo(name, password))

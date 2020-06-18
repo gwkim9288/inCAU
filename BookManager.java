@@ -14,10 +14,10 @@ public class BookManager {
 	}
 
 	//delete the book in the list. true is done.
-	boolean deleteBook(Book book){
+	boolean deleteBook(int bookNum){
 		for(Book i : bookList)
 		{
-			if(i == book) {
+			if(i.getNum() == bookNum) {
 				bookList.remove(i);
 				return true;
 			}
@@ -26,31 +26,37 @@ public class BookManager {
 	}
 
 	//return false if there is no name value, return true is done. 
-	boolean enterBook(String name, int ISBN, String author, String publisher,String state, Integer price, Integer year, Human user) {
-		if(name == null)
-			return false;
-		bookList.add(new Book(name,ISBN,author,publisher, state,price,year,user));
+	boolean enterBook(Book book) {
+		bookList.add(book);
 		return true;
 	}
 	
 	public ArrayList<Book> getBookInfo(String bookName) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
-			if(i.getName() == bookName)
+			if(i.getName().equals(bookName))
 				result.add(i);
 		}
 		return result;
 	}
 	
-	public boolean modifyBookInfo(Book book, Book newBook) {
+	public boolean modifyBookInfo(int bookNum, Book newBook) {
 		int num =0 ;
 		for(Book i : bookList) {
-			if(i == book) {
+			if(i.getNum() == bookNum) {
 				bookList.set(num, newBook);
 				return true;
 			}
 			num++;
 		}
 		return false;
+	}
+	
+	public Book matchBook(int num) {
+		for(Book i : bookList) {
+			if(i.getNum() == num)
+				return i;
+		}
+		return null;
 	}
 }

@@ -34,10 +34,14 @@ public class User extends Human {
 	
 	ArrayList<String> listUserBook() {
 		ArrayList<String> list = new ArrayList<>();
+		if(bookList.isEmpty())
+			return null;
 		for(Book i: bookList)
 			list.add(i.toString());
 		return list;
 	}
 
-	
+	String getAddress() {
+		return address;
+	}
 }
