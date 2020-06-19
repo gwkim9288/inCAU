@@ -34,6 +34,21 @@ public class Book {
 		return this.name;
 	}
 	
+	String getAuthor() {
+		return this.author;
+	}
+	
+	Integer getISBN() {
+		return this.ISBN;
+	}
+	
+	Integer getYear() {
+		return this.year;
+	}
+	
+	String getPublisher() {
+		return this.publisher;
+	}
 	int getNum() {
 		return this.uniqueNum;
 	}

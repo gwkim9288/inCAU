@@ -8,6 +8,7 @@ import bookMarket.SystemForUser;
 public abstract class Place implements SystemForUser, SystemForAdmin {
 
 	Human currentUser;
+	BookManager bookManager = new BookManager();
 	
 	public Place(Human cur) {
 		currentUser = cur;
@@ -19,9 +20,8 @@ public abstract class Place implements SystemForUser, SystemForAdmin {
 		return false;
 	}
 	
-	public ArrayList<String> findBook(String name){
-		return null;
-	}
+	// throws NumberFormatException to UI. show error message and repeat search process
+	public abstract ArrayList<String> findBook (String term, int decision);
 	
 	public boolean enterBook() {
 		return false;

@@ -15,7 +15,7 @@ public abstract class Human {
 	
 	//check current user is administrator
 	boolean isAdmin(){
-		if (this.name == "admin")
+		if (this.name.equals("admin"))
 			return true;
 		else
 			return false;
@@ -43,5 +43,9 @@ public abstract class Human {
 	abstract ArrayList<String> listUserBook();
 
 	abstract String getAddress();
+
+	abstract public void modifyBookInfo(int bookNum, Book book);
+	
+	abstract public boolean deleteBook(int bookNum);
 	
 }

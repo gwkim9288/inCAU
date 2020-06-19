@@ -4,6 +4,7 @@ import bookMarket.SystemForLogin;
 
 public class Market implements SystemForLogin{
 	Human currentUser;
+	
 	public Market(String name, String password) {
 		currentUser = UserManager.findUser(name, password);
 	}

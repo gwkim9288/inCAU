@@ -35,4 +35,16 @@ public class Admin extends Human {
 		return null;
 	}
 
+	@Override
+	public void modifyBookInfo(int bookNum, Book book) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean deleteBook(int bookNum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

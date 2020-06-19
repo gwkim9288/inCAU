@@ -44,4 +44,25 @@ public class User extends Human {
 	String getAddress() {
 		return address;
 	}
+
+	public void modifyBookInfo(int bookNum, Book newBook) {
+		int num =0 ;
+		for(Book i : bookList) {
+			if(i.getNum() == bookNum) {
+				bookList.set(num, newBook);
+			}
+			num++;
+		}
+	}
+	
+	public boolean deleteBook(int bookNum){
+		for(Book i : bookList)
+		{
+			if(i.getNum() == bookNum) {
+				bookList.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
 }

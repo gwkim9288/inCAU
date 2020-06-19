@@ -22,6 +22,8 @@ public class UserManager implements SystemUserManager {
 	}
 
 	static String regUser(String name, String password, String address, int phoneNum) {
+		if(listUser.isEmpty())
+			listUser.add(new Admin());
 		if(name == null)
 			return "Please input your name";
 		else if(password == null)
@@ -33,26 +35,26 @@ public class UserManager implements SystemUserManager {
 		return null;
 	}
 	
-	public boolean deleteUser(String name){
+	public int deleteUser(String name){
 			for(Human i : listUser)
 			{
-				if(i.getName() == name)
+				if(i.getName().equals(name))
 				{
 					if(i.getActivation())
-						return false;
+						return 0;
 					else {
 						listUser.remove(i);
-						return true;
+						return 1;
 					}
 				}
 			}
-			return false;
+			return 2;
 	}
 	
 	public boolean changeActive(String name) {
 		for(Human i : listUser)
 		{
-			if(i.getName() == name)
+			if(i.getName().equals(name))
 				return i.changeActive();
 		}
 		return false;
