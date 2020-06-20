@@ -3,8 +3,8 @@ package bookMarketSystem;
 import java.util.ArrayList;
 
 public abstract class Human {
-	private String name;
-	private String password;
+	protected String name;
+	protected String password;
 	protected boolean activation = true;
 	
 	
@@ -22,7 +22,7 @@ public abstract class Human {
 	}
 	
 	// user login, used by UserManageer
-	boolean matchInfo(String name, String password){
+	public boolean matchInfo(String name, String password){
 		if(this.name.equals(name)&&this.password.equals(password))
 			return true;
 		else
@@ -30,7 +30,7 @@ public abstract class Human {
 	}
 	
 	//return this user's name
-	String getName() {
+	public String getName() {
 		return this.name;
 	}
 	
@@ -42,7 +42,7 @@ public abstract class Human {
 
 	abstract ArrayList<String> listUserBook();
 
-	abstract String getAddress();
+	abstract public String getAddress();
 
 	abstract public void modifyBookInfo(int bookNum, Book book);
 	

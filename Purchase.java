@@ -10,7 +10,8 @@ public class Purchase {
 	public Purchase(Human currentUser, int num) {
 		ma = new BookManager();
 		this.book = ma.matchBook(num);
-		this.seller = book.getUser();
+		if(book != null)
+			seller = book.getUser();
 		this.buyer = currentUser;
 		// TODO Auto-generated constructor stub
 	}

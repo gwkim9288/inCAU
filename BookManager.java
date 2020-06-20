@@ -21,8 +21,8 @@ public class BookManager {
 		return false;
 	}
 
-	//return false if there is no name value, return true is done. 
-	boolean enterBook(Book book) {
+	public boolean enterBook(Book book) {
+		book.getUser().addBook(book);
 		bookList.add(book);
 		return true;
 	}

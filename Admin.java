@@ -30,7 +30,7 @@ public class Admin extends Human {
 	}
 
 	@Override
-	String getAddress() {
+	public String getAddress() {
 		// TODO Auto-generated method stub
 		return null;
 	}

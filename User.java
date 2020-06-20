@@ -8,7 +8,7 @@ public class User extends Human {
 	private String address;
 	private ArrayList<Book> bookList = new ArrayList<>();
 	
-	User(String name, String password, String address, int phoneNum) {
+	public User(String name, String password, String address, int phoneNum) {
 		super(name, password);
 		this.phoneNum = phoneNum;
 		this.address = address;
@@ -41,7 +41,7 @@ public class User extends Human {
 		return list;
 	}
 
-	String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
@@ -64,5 +64,14 @@ public class User extends Human {
 			}
 		}
 		return false;
+	}
+	
+	public String toString() {
+		String act;
+		if(super.activation)
+			act="Active";
+		else
+			act = "Inactive";
+		return String.format("ID:%s\tPassword:%s\tAddress:%s\tPhone Number:%d\t%s", super.name,super.password,address,phoneNum,act);
 	}
 }

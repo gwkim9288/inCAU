@@ -14,13 +14,14 @@ public class UserPlace extends Place implements SystemForUser{
 		currentUser = cur;
 	}
 		
-	public boolean enterBook(String name, Integer ISBN, String author, String publisher,String state, Integer price, Integer year) {
+	public boolean enterBook(String name, Integer ISBN, String author, String publisher,Integer state, Integer price, Integer year) {
 		Book book = new Book(name,ISBN,author,publisher,state,price,year,currentUser);
-		currentUser.addBook(book);
 		return bookManager.enterBook(book);
 	}
 
 	public boolean deleteBook(int bookNum) {
+		if(bookManager.matchBook(bookNum) == null)
+			return false;
 		if(bookManager.matchBook(bookNum).getUser().equals(currentUser))
 			return bookManager.deleteBook(bookNum);
 		else
@@ -62,7 +63,7 @@ public class UserPlace extends Place implements SystemForUser{
 			return searchResult;
 		}
 	
-	public boolean modifyBook(int bookNum,String name,Integer ISBN, String author,String publisher, String state, Integer price , Integer year) {
+	public boolean modifyBook(int bookNum,String name,Integer ISBN, String author,String publisher, Integer state, Integer price , Integer year) {
 		Book book = new Book(name,ISBN,author,publisher,state,price,year,currentUser);
 		if(bookManager.matchBook(bookNum).getUser() == currentUser) {
 			currentUser.modifyBookInfo(bookNum,book);

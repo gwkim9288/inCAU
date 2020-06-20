@@ -62,14 +62,14 @@ public class AdminPlace extends Place implements SystemForAdmin{
 	}
 
 	@Override
-	public boolean enterBook(String name, Integer ISBN, String author, String publisher, String state, Integer price,
+	public boolean enterBook(String name, Integer ISBN, String author, String publisher, Integer state, Integer price,
 			Integer year) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean modifyBook(int bookNum, String name, Integer ISBN, String author, String publisher, String state,
+	public boolean modifyBook(int bookNum, String name, Integer ISBN, String author, String publisher, Integer state,
 			Integer price, Integer year) {
 		// TODO Auto-generated method stub
 		return false;
