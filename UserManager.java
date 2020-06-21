@@ -9,6 +9,9 @@ public class UserManager implements SystemUserManager {
 	Human recentUser;
 	private static ArrayList<Human> listUser = new ArrayList<>();
 
+	public UserManager(Human admin) {
+		recentUser = admin;
+	}
 	
 	static public Human findUser(String name,String password){
 		if(listUser.isEmpty())
@@ -29,6 +32,9 @@ public class UserManager implements SystemUserManager {
 	}
 	
 	public int deleteUser(String name){
+		//if not admin, can't approach this function
+				if(recentUser.isAdmin() == false)
+					return 3;
 			for(Human i : listUser)
 			{
 				if(i.getName().equals(name))
@@ -45,6 +51,9 @@ public class UserManager implements SystemUserManager {
 	}
 	
 	public boolean changeActive(String name) {
+		//if not admin, can't approach this function
+		if(recentUser.isAdmin() == false)
+			return false;
 		for(Human i : listUser)
 		{
 			if(i.getName().equals(name))
@@ -54,6 +63,9 @@ public class UserManager implements SystemUserManager {
 	}
 	
 	public ArrayList<String> listUser(){
+		//if not admin, can't approach this function
+		if(recentUser.isAdmin() == false)
+			return null;
 		ArrayList<String> result = new ArrayList<>();
 		for(Human i : listUser) {
 			if(i.isAdmin() == false)

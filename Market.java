@@ -30,7 +30,7 @@ public class Market implements SystemForLogin{
 	}
 	
 	public UserManager getManager() {
-		return new UserManager();
+		return new UserManager(currentUser);
 	}
 
 	

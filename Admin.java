@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Admin extends Human {
 
-	Admin() {
-		super("admin", "sssss");
+	public Admin() {
+		super("admin", "nayana");
 	}
 
 	@Override

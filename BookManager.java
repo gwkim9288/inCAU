@@ -101,9 +101,9 @@ public class BookManager {
 		return false;
 	}
 	
-	public Book matchBook(int num) {
+	public Book matchBook(int bookNum) {
 		for(Book i : bookList) {
-			if(i.getNum() == num)
+			if(i.getNum() == bookNum)
 				return i;
 		}
 		return null;

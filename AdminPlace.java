@@ -20,9 +20,9 @@ public class AdminPlace extends Place implements SystemForAdmin{
 	}
 
 	// throws NumberFormatException to UI. show error message and repeat search process
-		public ArrayList<String> findBook (String term, int decision)  throws NumberFormatException {
+		public ArrayList<String> findBook (String term, int option)  throws NumberFormatException {
 			ArrayList<Book> bookSearchList = null;
-			switch(decision)
+			switch(option)
 			{
 			case 1:
 				bookSearchList = bookManager.getBookInfoByName(term);
@@ -49,7 +49,13 @@ public class AdminPlace extends Place implements SystemForAdmin{
 			return searchResult;
 		}
 	
-	//override method
+	
+		
+		
+		
+		
+		
+		//override method
 	public String buyBook(int num) {
 		return null;
 	}
