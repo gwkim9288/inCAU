@@ -31,6 +31,8 @@ public class BookManager {
 	public ArrayList<Book> getBookInfoByName(String bookName) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
+			if(i.getName() == null)
+				continue;
 			if(i.getName().equals(bookName))
 				result.add(i);
 		}
@@ -41,6 +43,8 @@ public class BookManager {
 	public ArrayList<Book> getBookInfoByISBN(Integer ISBN) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
+			if(i.getISBN() == null)
+				continue;
 			if(i.getISBN().equals(ISBN))
 				result.add(i);
 		}
@@ -51,6 +55,8 @@ public class BookManager {
 	public ArrayList<Book> getBookInfoByAuthor(String author) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
+			if(i.getAuthor() == null)
+				continue;
 			if(i.getAuthor().equals(author))
 				result.add(i);
 		}
@@ -61,6 +67,8 @@ public class BookManager {
 	public ArrayList<Book> getBookInfoByPublisher(String publisher) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
+			if(i.getPublisher() == null)
+				continue;
 			if(i.getPublisher().equals(publisher))
 				result.add(i);
 		}
@@ -71,6 +79,8 @@ public class BookManager {
 	public ArrayList<Book> getBookInfoByYear(Integer year) {
 		ArrayList<Book> result = new ArrayList<>();
 		for(Book i : bookList) {
+			if(i.getYear() == null)
+				continue;
 			if(i.getYear().equals(year))
 				result.add(i);
 		}

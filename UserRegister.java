@@ -3,7 +3,7 @@ package bookMarketSystem;
 import bookMarket.SystemUserRegister;
 
 public class UserRegister implements SystemUserRegister{
-	public void regUser(String name,String password, String address, Integer phoneNum) {
-		UserManager.regUser(name, password, address, phoneNum);
+	public boolean regUser(String name,String password, String address, Integer phoneNum) {
+		return UserManager.regUser(name, password, address, phoneNum);
 	}
 }

@@ -19,16 +19,23 @@ public class UserManager implements SystemUserManager {
 		for(Human i: listUser)
 		{
 			if(i.matchInfo(name, password))
-				return i;
+				if(i.getActivation())
+					return i;
+				
 		}
 		return null;
 	}
 
-	static public void regUser(String name, String password, String address, int phoneNum) {
+	static public boolean regUser(String name, String password, String address, int phoneNum) {
 		if(listUser.isEmpty())
 			listUser.add(new Admin());
 
+		for(Human i: listUser) {
+			if(name.equals(i.getName()))
+				return false;
+		}
 		listUser.add(new User(name,password,address,phoneNum));
+		return true;
 	}
 	
 	public int deleteUser(String name){

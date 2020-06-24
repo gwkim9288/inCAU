@@ -3,7 +3,7 @@ package bookMarketSystem;
 public class Book {
 	
 	private String name;
-	private int ISBN;
+	private Integer ISBN;
 	private String publisher;
 	private String author;
 	private Integer state; //1 = Excellent, 2 = Good, 3 = Fair
@@ -15,12 +15,21 @@ public class Book {
 	
 	public Book(String name, Integer ISBN, String author,String publisher, Integer state, Integer price, Integer year,Human user ) {
 		this.name = name;
-		this.ISBN = ISBN;
+		if(ISBN < 0)
+			this.ISBN = null;
+		else
+			this.ISBN=ISBN;
 		this.author = author;
 		this.publisher = publisher;
 		this.state = state;
-		this.price = price;
-		this.year = year;
+		if(price<0)
+			this.price = null;
+		else
+			this.price = price;
+		if(year<0)
+			this.year = null;
+		else
+			this.year = year;
 		this.user = user;
 		this.uniqueNum = totalNum;
 		totalNum++;
@@ -59,13 +68,20 @@ public class Book {
 		{
 		case 1:
 			st = "Excellent";
+			break;
 		case 2:
 			st = "Good";
+			break;
 		case 3:
 			st = "Fair";
+			break;
 		default:
-			st ="";	
+			st ="null";	
 		}
+		if(author.isEmpty())
+			author =null;
+		if(publisher.isEmpty())
+			publisher = null;
 		return String.format("Num:%d\tName:%s\tISBN:%d\tAuthor:%s\tPublisher:%s\tPublishing Year:%d\tPrice:%d\tState:%s", uniqueNum,name,ISBN,author,publisher,year,price,st);
 	}
 }
